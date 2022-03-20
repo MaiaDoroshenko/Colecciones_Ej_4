@@ -23,42 +23,40 @@ package colecciones_ej_4;
 
 import PeliculaServicios.PeliculaServicios;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Collections;
 import peliculaEntidades.Pelicula;
 
 public class PeliculaMain {
 
-    private ArrayList<Pelicula> pelis = new ArrayList<>();
+    
 
     public static void main(String[] args) {
         PeliculaServicios pel = new PeliculaServicios();//instancio la clase servicios 
-        Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        String rta;
-        ArrayList<Pelicula> pelis = new ArrayList<>();// creo un ArrayList para gusrdar los datos de las peliculas 
-
-        do {
-            System.out.println("Ingrese el titulo de la pelicula: ");
-            String titulo = leer.next();
-            System.out.println("Ingrese el Director de la pelicula :");
-            String director = leer.next();
-            System.out.println("Ingrese la duracion en horas :");
-            Double duracion = leer.nextDouble();
-            Pelicula p1 = new Pelicula();// creo objeto pelicula
-            p1.setTitulo(titulo);//guardo los datos en el objero pelicula 
-            p1.setDirector(director);
-            p1.setDuracion(duracion);
-            System.out.println("Ingresar otra pelicula? Si/No");
-            rta = leer.next();
-            pelis.add(p1);// agrego todas las peliculas al ArrayList pelis 
-
-        } while ("si".equalsIgnoreCase(rta));
-          
+        ArrayList<Pelicula> pelEnt=pel.ingresarDatos();
+        System.out.println(" LISTA PELIS INGRESADAS : ");
+        System.out.println(" ");
+        pel.mostrarPelicula();
+        System.out.println("DURACION MAYOR A 1 HORA :");
+        System.out.println(" ");
+        pel.peliculasUnaHora();
+        System.out.println(" ORDENADA DE MATOR A MENOR : ");
+        System.out.println(" ");
+        Collections.sort(pelEnt,PeliculaServicios.deMayorAMenor);
         
-        for (Pelicula P : pelis) {//recorro el ArrayList y muestro las pelis ingresadas 
-            System.out.println(P);//muestro la cantidad de las peliculas ingresadas en el ArrayList
+        for (Pelicula P : pelEnt) {
+            System.out.println(P);
         }
-        
-        System.out.println(" Pelis ingresadas : " + pelis.size());
-    }
 
-}
+        
+           
+        
+    
+
+
+            
+        }
+        }
+       
+    
+
+

@@ -28,35 +28,32 @@ import peliculaEntidades.Pelicula;
 
 public class PeliculaMain {
 
-    
-
     public static void main(String[] args) {
         PeliculaServicios pel = new PeliculaServicios();//instancio la clase servicios 
-        ArrayList<Pelicula> pelEnt=pel.ingresarDatos();
+        ArrayList<Pelicula> pelEnt = pel.ingresarDatos();
         System.out.println(" LISTA PELIS INGRESADAS : ");
         System.out.println(" ");
-        pel.mostrarPelicula();
+        pel.mostrarPelicula();// Llamo el metodo mostrar pelicula
         System.out.println("DURACION MAYOR A 1 HORA :");
         System.out.println(" ");
-        pel.peliculasUnaHora();
-        System.out.println(" ORDENADA DE MATOR A MENOR : ");
+        pel.peliculasUnaHora();// Llamo el metodo ordenar peli de mas de una hora 
         System.out.println(" ");
-        Collections.sort(pelEnt,PeliculaServicios.deMayorAMenor);
-        
+        System.out.println(" ORDENADA DE MAyOR A MENOR : ");
+        Collections.sort(pelEnt, PeliculaServicios.deMayorAMenor);//  Llamo el metodo de Ordenar  de mayor a menor 
+
         for (Pelicula P : pelEnt) {
             System.out.println(P);
         }
-
         
+        
+        System.out.println(" ");
+        System.out.println("ORDENADO DE MENOR A MAYOR : ");
+        Collections.sort(pelEnt, PeliculaServicios.deMenorAMayor);
+
+        for (Pelicula P : pelEnt) {
            
-        
-    
-
-
-            
+            System.out.println(P);
         }
-        }
-       
-    
 
-
+    }
+}

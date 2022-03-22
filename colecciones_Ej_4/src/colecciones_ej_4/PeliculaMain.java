@@ -31,12 +31,18 @@ public class PeliculaMain {
     public static void main(String[] args) {
         PeliculaServicios pel = new PeliculaServicios();//instancio la clase servicios 
         ArrayList<Pelicula> pelEnt = pel.ingresarDatos();
+       
+        
         System.out.println(" LISTA PELIS INGRESADAS : ");
         System.out.println(" ");
         pel.mostrarPelicula();// Llamo el metodo mostrar pelicula
+        
+        
         System.out.println("DURACION MAYOR A 1 HORA :");
         System.out.println(" ");
         pel.peliculasUnaHora();// Llamo el metodo ordenar peli de mas de una hora 
+       
+        
         System.out.println(" ");
         System.out.println(" ORDENADA DE MAyOR A MENOR : ");
         Collections.sort(pelEnt, PeliculaServicios.deMayorAMenor);//  Llamo el metodo de Ordenar  de mayor a menor 
@@ -54,6 +60,21 @@ public class PeliculaMain {
            
             System.out.println(P);
         }
-
+        
+        
+        System.out.println(" ");
+        System.out.println("ORDEN ALFABETICO : ");
+        Collections.sort(pelEnt,PeliculaServicios. alfabeticamente);
+        for (Pelicula P : pelEnt) {
+            System.out.println(P);
+        }
+        
+        System.out.println(" ");
+        System.out.println("ORDEN ALFABETICO DIRECTOR : ");
+        Collections.sort(pelEnt,PeliculaServicios.directoralf);
+        for (Pelicula P : pelEnt) {
+            System.out.println(P);
+        }
+        
     }
 }
